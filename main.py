@@ -563,7 +563,7 @@ while running:
             if event.key == pygame.K_RETURN:
                 if bomb_count > 0:
                     # スコアから1000点を消費する
-                    score -= 1000
+                    score -= 1500
                     bomb_flash_frames = 8  # 画面フラッシュ時間
                     shake_frames = 25      # 強い画面シェイク
                     
@@ -803,8 +803,7 @@ while running:
         screen.blit(font_ui.render(f"SCORE: {score}", True, UI_COLOR), (20, 20))
     if game_state == "PLAYING":
         # ★ボム数を絵文字（💣）でUI表示
-        bomb_icons = "💣" * bomb_count if bomb_count > 0 else "NONE"
-        screen.blit(font_ui.render(f"SCORE: {score}  (BOMB: {bomb_icons})", True, UI_COLOR), (20, 20))
+        screen.blit(font_ui.render(f"SCORE: {score}  (BOMB: {bomb_count})", True, UI_COLOR), (20, 20))
         screen.blit(font_ui.render(f"LIFE: {hp} / 5", True, UI_COLOR), (20, 60))
         slow_color = (0, 255, 255) if slow_sys.is_active else UI_COLOR
         screen.blit(font_ui.render(f"SLOW [SPACE]: {slow_sys.count} / 3", True, slow_color), (20, 100))

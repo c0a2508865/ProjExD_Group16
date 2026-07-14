@@ -129,90 +129,175 @@ enemy_images = [
 ]
 
 ENEMY_TYPES = [
+    #3~4文字
     [
-        {"ja": "すたんど", "en": "SUTANDO"},{"ja": "はもん", "en": "HAMON"},
-        {"ja": "ふぉーす", "en": "FOOSU"},{"ja": "じぇだい", "en": "JEDAI"},
-        {"ja": "しす", "en": "SISU"},{"ja": "らいとせーばー", "en": "RAITOSEEBAA"},
-        {"ja": "ひーろー", "en": "HIIROO"},{"ja": "かいじん", "en": "KAIZIN"},
-        {"ja": "さいたま", "en": "SAITAMA"},{"ja": "じぇのす", "en": "JENOSU"},
-        {"ja": "いかげーむ", "en": "IKAGEEMU"},{"ja": "だるまさん", "en": "DARUMASAN"},
-        {"ja": "かたぬき", "en": "KATANUKI"},{"ja": "ぎふん", "en": "GIHUN"},
-        {"ja": "ふろんとまん", "en": "HURONTOMAN"},{"ja": "いしかめん", "en": "ISIKAMEN"},
-        {"ja": "ていこく", "en": "TEIKOKU"},{"ja": "ですすたー", "en": "DESUSUTAA"},
-        {"ja": "わんぱん", "en": "WANPAN"},{"ja": "ますく", "en": "MASUKU"}
+        {"ja": "ねこ", "en": "NEKO"},
+        {"ja": "にゃー", "en": "NYAA"},
+        {"ja": "ますたー", "en": "MASTAA"},
+        {"ja": "いぬ", "en": "INU"},
+        {"ja": "とり", "en": "TORI"},
+        {"ja": "うま", "en": "UMA"},
+        {"ja": "さる", "en": "SARU"},
+        {"ja": "くま", "en": "KUMA"},
+        {"ja": "きつね", "en": "KITUNE"},
+        {"ja": "うさぎ", "en": "USAGI"},
+        {"ja": "らいおん", "en": "RAION"},
+        {"ja": "ごりら", "en": "GORIRA"},
+        {"ja": "はな", "en": "HANA"},
+        {"ja": "そら", "en": "SORA"},
+        {"ja": "ほし", "en": "HOSI"},
+        {"ja": "つき", "en": "TUKI"},
+        {"ja": "ゆき", "en": "YUKI"},
+        {"ja": "あめ", "en": "AME"},
+        {"ja": "かぜ", "en": "KAZE"},
+        {"ja": "うみ", "en": "UMI"},
+        {"ja": "やま", "en": "YAMA"},
+        {"ja": "かわ", "en": "KAWA"},
+        {"ja": "みず", "en": "MIZU"},
+        {"ja": "ひかり", "en": "HIKARI"},
+        {"ja": "ゆめ", "en": "YUME"},
+        {"ja": "こころ", "en": "KOKORO"},
+        {"ja": "えがお", "en": "EGAO"},
+        {"ja": "ほのお", "en": "HONOO"},
+        {"ja": "こおり", "en": "KOORI"},
+        {"ja": "でんき", "en": "DENKI"},
+        {"ja": "かみ", "en": "KAMI"},
+        {"ja": "けん", "en": "KEN"},
+        {"ja": "ゆみ", "en": "YUMI"},
+        {"ja": "つるぎ", "en": "TURUGI"},
+        {"ja": "まほう", "en": "MAHOU"},
+        {"ja": "どらごん", "en": "DORAGON"},
+        {"ja": "すらいむ", "en": "SURAIMU"},
+        {"ja": "にんじゃ", "en": "NINJA"},
+        {"ja": "まおう", "en": "MAOU"},
+        {"ja": "ゆうしゃ", "en": "YUUSYA"},
+        {"ja": "しろ", "en": "SIRO"},
+        {"ja": "くろ", "en": "KURO"},
+        {"ja": "トイレ", "en": "TOIRE"},
+        {"ja": "マスター", "en": "MASTAA"},
+        {"ja": "オビワン", "en": "OBIWAN"},
+        {"ja": "アナキン", "en": "ANAKIN"},
+        {"ja": "パダワン", "en": "PADAWAN"},
+        {"ja": "アーニャ", "en": "AANYA"},
+        {"ja": "短髪", "en": "TANPATU"},
+        {"ja": "家畜", "en": "KATIKU"},
+        {"ja": "あきら", "en": "AKIRA"},
+        {"ja": "スカンク", "en": "SUKANKU"},
+        {"ja": "バランス", "en": "BARANSU"}
     ],
+    
+    #5~6文字
     [
-        {"ja": "しびれる", "en": "SIBIRERU"},{"ja": "あこがれる", "en": "AKOGARERU"},
-        {"ja": "くろいせいし", "en": "KUROISEISI"},{"ja": "あります", "en": "ARIMASU"},
-        {"ja": "いやなよかん", "en": "IYANAYOKAN"},{"ja": "ふつうのぱんち", "en": "HUTUUNOPANTI"},
-        {"ja": "れんぞく", "en": "RENZOKU"},{"ja": "まじなぐり", "en": "MAZINAGURI"},
-        {"ja": "むきゅう", "en": "MUKYUU"},{"ja": "ぶいあいぴー", "en": "BUIAIPII"},
-        {"ja": "つなひき", "en": "TUNAHIKI"},{"ja": "びーだま", "en": "BIIDAMA"},
-        {"ja": "がらすのはし", "en": "GARASUNOHASI"},{"ja": "ごーるど", "en": "GOORUDO"},
-        {"ja": "すたーぷらちな", "en": "SUTAAPURATINA"},{"ja": "ざわーるど", "en": "ZAWAARUDO"},
-        {"ja": "だーすべいだー", "en": "DAASUBEIDAA"},{"ja": "とるーぱー", "en": "TORUUPAA"},
-        {"ja": "たつまき", "en": "TATUMAKI"},{"ja": "きんぐえんじん", "en": "KINGUENZIN"},
-        {"ja": "もうちがう", "en": "MOUTIGAU"},
-        {"ja": "しびれる", "en": "SIBIRERU"},{"ja": "あこがれる", "en": "AKOGARERU"},
-        {"ja": "くろいせいし", "en": "KUROISEISI"}, {"ja": "あります", "en": "ARIMASU"},
-        {"ja": "いやなよかん", "en": "IYANAYOKAN"},{"ja": "ふつうのぱんち", "en": "HUTUUNOPANTI"},
-        {"ja": "れんぞく", "en": "RENZOKU"},{"ja": "まじなぐり", "en": "MAZINAGURI"},
-        {"ja": "むきゅう", "en": "MUKYUU"},{"ja": "ぶいあいぴー", "en": "BUIAIPII"},
-        {"ja": "つなひき", "en": "TUNAHIKI"},{"ja": "びーだま", "en": "BIIDAMA"},
-        {"ja": "がらすのはし", "en": "GARASUNOHASI"},{"ja": "ごーるど", "en": "GOORUDO"},
-        {"ja": "すたーぷらちな", "en": "SUTAAPURATINA"},{"ja": "ざわーるど", "en": "ZAWAARUDO"},
-        {"ja": "だーすべいだー", "en": "DAASUBEIDAA"},{"ja": "とるーぱー", "en": "TORUUPAA"},
-        {"ja": "たつまき", "en": "TATUMAKI"}, {"ja": "きんぐえんじん", "en": "KINGUENZIN"},
-        {"ja": "もうちがう", "en": "MOUTIGAU"}
+        {"ja": "ピカチュウ", "en": "PIKATYUU"},
+        {"ja": "リザードン", "en": "RIZAADON"},
+        {"ja": "カメックス", "en": "KAMEKKUSU"},
+        {"ja": "フシギダネ", "en": "HUSIGIDANE"},
+        {"ja": "エースバン", "en": "EESUBAN"},
+        {"ja": "ガンダム", "en": "GANDAMU"},
+        {"ja": "シャア", "en": "SYAA"},
+        {"ja": "ザクツー", "en": "ZAKUTUU"},
+        {"ja": "エルフ", "en": "ERUHU"},
+        {"ja": "ドワーフ", "en": "DOWAAHU"},
+        {"ja": "オーク", "en": "OOKU"},
+        {"ja": "ゴブリン", "en": "GOBURIN"},
+        {"ja": "けんしろう", "en": "KENSIROU"},
+        {"ja": "らおう", "en": "RAOU"},
+        {"ja": "とき", "en": "TOKI"},
+        {"ja": "なると", "en": "NARUTO"},
+        {"ja": "さすけ", "en": "SASUKE"},
+        {"ja": "さくら", "en": "SAKURA"},
+        {"ja": "かかし", "en": "KAKASI"},
+        {"ja": "いたち", "en": "ITATI"},
+        {"ja": "ルフィ", "en": "RUHUFI"},
+        {"ja": "ゾロ", "en": "ZORO"},
+        {"ja": "サンジ", "en": "SANZI"},
+        {"ja": "ナミ", "en": "NAMI"},
+        {"ja": "チョッパー", "en": "TYOPPAA"},
+        {"ja": "ベジータ", "en": "BEZIITA"},
+        {"ja": "トランクス", "en": "TORANKUSU"},
+        {"ja": "フリーザ", "en": "HURIIZA"},
+        {"ja": "セルゲーム", "en": "SERUGEEMU"},
+        {"ja": "エレン", "en": "EREN"},
+        {"ja": "ミカサ", "en": "MIKASA"},
+        {"ja": "リヴァイ", "en": "RIVAI"},
+        {"ja": "アルミン", "en": "ARUMIN"},
+        {"ja": "たんじろう", "en": "TANZIROU"},
+        {"ja": "ねずこ", "en": "NEZUKO"},
+        {"ja": "ぜんいつ", "en": "ZENITU"},
+        {"ja": "いのすけ", "en": "INOSUKE"},
+        {"ja": "ゴジラ", "en": "GOZIRA"},
+        {"ja": "こんぐ", "en": "KONGU"},
+        {"ja": "ウルトラ", "en": "URUTORA"},
+        {"ja": "元老院", "en": "GENROUIN"},
+        {"ja": "シディアス", "en": "SIDHIAU"},
+        {"ja": "首ちょんぱ", "en": "KUBITYONPA"},
+        {"ja": "集中しよう", "en": "SYUUTYUUSIYO"},
+        {"ja": "ピーナッツ", "en": "PIINATTU"},
+        {"ja": "おでんくん", "en": "ODENKUN"},
+        {"ja": "テディベア", "en": "TEDHIBEA"}
     ],
+    
+    #7~8文字
     [
-        {"ja": "おまえは", "en": "OMAEHA"},{"ja": "ぱんのまいすう", "en": "PANNOMAISUU"},
-        {"ja": "むだむだむだむだ", "en": "MUDAMUDAMUDAMUDA"},{"ja": "おらおらおらおら", "en": "ORAORAORAORA"},
-        {"ja": "だがことわる", "en": "DAGAKOTOWARU"},{"ja": "しんせかい", "en": "SINSEKAI"},
-        {"ja": "くずが", "en": "KUZUGA"},{"ja": "あっとうてき", "en": "ATTOUTEKI"},
-        {"ja": "きんきんにひえて", "en": "KINKINNIHIETE"},{"ja": "はいぼくしゃ", "en": "HAIBOKUSYA"},
-        {"ja": "ごみのようだ", "en": "GOMINOYOUDA"},{"ja": "ばるす", "en": "BARUSU"},
-        {"ja": "じぇだいのきかん", "en": "JEDAINOKIKAN"},{"ja": "くろーんうぉーず", "en": "KUROONWOOZU"},
-        {"ja": "ふるこん", "en": "HURUKON"},{"ja": "むめんらいだー", "en": "MUMENRAIDAA"},
-        {"ja": "じてんしゃ", "en": "ZITENSYA"},{"ja": "しんかいおう", "en": "SINKAIOU"},
-        {"ja": "ぼろす", "en": "BOROSU"},{"ja": "めぐみん", "en": "MEGUMIN"},
-        {"ja": "西国分寺のトイレ", "en": "NISIKOKUBUNNZINOTOIRE"}
+        {"ja": "どらえもん", "en": "DORAEMON"},
+        {"ja": "のびのびた", "en": "NOBINOBITA"},
+        {"ja": "しずかちゃん", "en": "SIZUKATYAN"},
+        {"ja": "ジャイアン", "en": "ZYAIAN"},
+        {"ja": "くれしん", "en": "KURESIN"},
+        {"ja": "あんぱんまん", "en": "ANPANMAN"},
+        {"ja": "しょくぱんまん", "en": "SYOKUPANMAN"},
+        {"ja": "ばいきんまん", "en": "BAIKINMAN"},
+        {"ja": "めろんぱんな", "en": "MERONPANNA"},
+        {"ja": "かめはめは", "en": "KAMEHAMEHA"},
+        {"ja": "げんきだま", "en": "GENKIDAMA"},
+        {"ja": "かいおうけん", "en": "KAIOUKEN"},
+        {"ja": "ワンフォーオール", "en": "WANHOOOORU"},
+        {"ja": "オールマイト", "en": "OORUMAITO"},
+        {"ja": "エンデヴァー", "en": "ENDEVAA"},
+        {"ja": "しんげき", "en": "SINGEKI"},
+        {"ja": "ちょうさへい", "en": "TYOUSAHEI"},
+        {"ja": "リヴァイへい", "en": "RIVAIHEI"},
+        {"ja": "むげんれっしゃ", "en": "MUGENRESSYA"},
+        {"ja": "にちりんとう", "en": "NITIRINTOU"},
+        {"ja": "かめんらいだー", "en": "KAMENRAIDAA"},
+        {"ja": "ウルトラマン", "en": "URUTORAMAN"},
+        {"ja": "ヱヴァンゲリオン", "en": "EVANGERION"},
+        {"ja": "ガンダムシード", "en": "GANDAMUSIIDO"},
+        {"ja": "ワンピース", "en": "WANPIISU"},
+        {"ja": "ドラゴンボール", "en": "DORAGONBOORU"},
+        {"ja": "ポケットモンスター", "en": "POKETTOMONSUTAA"},
+        {"ja": "デジタルモンスター", "en": "DEZITARUMONSUTAA"},
+        {"ja": "スーパーマリオ", "en": "SUUPAAMARIO"},
+        {"ja": "マリオカート", "en": "MARIOKAATO"},
+        {"ja": "西国分寺", "en": "NISIKOKUBUNZI"}
     ],
+    
+    #9~10文字
     [
-        {"ja": "あっとうてきなぱわー", "en": "ATTOUTEKINAPAWAA"},{"ja": "しゅみでひーろー", "en": "SYUMIDEHIIROO"},
-        {"ja": "まためろ", "en": "MATAMERO"},{"ja": "うでたてふせ", "en": "UDETATEHUSE"},
-        {"ja": "じょう状態おこし", "en": "JOUTAIOKOSI"},{"ja": "すくわっと", "en": "SUKUWATTO"},
-        {"ja": "らんにんぐ", "en": "RANNINGU"},{"ja": "まいにちやる", "en": "MAINITIYARU"},
-        {"ja": "はげまんと", "en": "HAGEMANTO"},{"ja": "おんそくのそにっく", "en": "ONSOKUNOSONIKKU"},
-        {"ja": "じごくのふぶき", "en": "ZIGOKUNOHUBUKI"},{"ja": "ぼろすかんたい", "en": "BOROSUKANTAI"},
-        {"ja": "ほうこうほう", "en": "HOUKOUHOU"}, {"ja": "よんひゃく", "en": "YONHYAKU"},
-        {"ja": "おおがねもち", "en": "OOGANEMOTI"},{"ja": "ですげーむ", "en": "DESUGEEMU"},
-        {"ja": "しゃさつ", "en": "SYASATU"},{"ja": "おくうぉん", "en": "OKUWON"},
-        {"ja": "めぐみ", "en": "MEGUMI"}, {"ja": "かなしきかこ", "en": "KANASIKIKAKO"}
+        {"ja": "スーパーサイヤ人", "en": "SUUPAASAIYAZIN"},      
+        {"ja": "ファイナルフラッシュ", "en": "HAINARUHURASSYU"}, 
+        {"ja": "かめはめはだいおう", "en": "KAMEHAMEHADAIOU"},   
+        {"ja": "ギアセカンド", "en": "GIASEKANDO"},             
+        {"ja": "ギアフォース", "en": "GIAHOOSU"},               
+        {"ja": "ワンフォーオール", "en": "WANHOOOORU"},         
+        {"ja": "オールフォーワン", "en": "OORUHOOOWAN"},        
+        {"ja": "ゴムゴムのみ", "en": "GOMUGOMUNOMI"},           
+        {"ja": "おにたいじ", "en": "ONITAIZI"},         
+        {"ja": "れんごくきょうじゅろう", "en": "RENGOKUKYOUZIROU"}, 
+        {"ja": "かまどたんじろう", "en": "KAMADOTANZIROU"},     
+        {"ja": "あがつまぜんいつ", "en": "AGATUMAZENITU"},      
+        {"ja": "はしびらいのすけ", "en": "HASIBIRAINOSUKE"},    
+        {"ja": "ときとうむいちろう", "en": "TOKITOUMUITIROU"},  
+        {"ja": "こちょうしのぶ", "en": "KOTYOUSINOBU"},        
+        {"ja": "とどろきしょうと", "en": "TODOROKISYOUTO"},     
+        {"ja": "みどりやいずく", "en": "MIDORIYAIZUKU"},        
+        {"ja": "ばくごうかつき", "en": "BAKUGOUKATUKI"},        
+        {"ja": "しがらきとむら", "en": "SIGARAKITOMURA"},
+        {"ja": "もうぼくやらない", "en": "MOUBOKUYARANAI"},      
+        {"ja": "りゅうおうのけん", "en": "RYUUOUNOKEN"}      
     ],
-    [
-        {"ja": "ひんじゃくひんじゃく", "en": "HINJAKUHINJAKU"},{"ja": "しんでいる", "en": "SINDEIRU"},
-        {"ja": "つぎのせりふは", "en": "TUGINOSERIHU"},{"ja": "さいこうにははい", "en": "SAIKOUNIHAI"},
-        {"ja": "すかいうぉーかー", "en": "SUKAIWOOKAA"},{"ja": "ちちおや", "en": "TITIOYA"},
-        {"ja": "おまえのちちおや", "en": "OMAENOTITIOYA"},{"ja": "だーくさいど", "en": "DAAKUSAIDO"},
-        {"ja": "ぎんがけい", "en": "GINGAKEI"},{"ja": "おわっちまった", "en": "OWATTIMATTA"},
-        {"ja": "つよくなりすぎてしまった", "en": "TUYOKUNARISUGITESIMATTA"},{"ja": "きょうかい", "en": "KYOUKAI"},
-        {"ja": "かいじんきょうかい", "en": "KAIZINKYOUKAI"},{"ja": "しゅじんこう", "en": "SYUZINKOU"},
-        {"ja": "げーむをさせてくれ", "en": "GEEMUWOSASETEKURE"},{"ja": "おまえはただのうまだ", "en": "OMAEHATADANOUMADA"},
-        {"ja": "うらぎり", "en": "URAGIRI"},{"ja": "スイパラいこ", "en": "SUIPARAIKO"},
-        {"ja": "けもの", "en": "KEMONO"},{"ja": "はやしれいな", "en": "HAYASIREINA"},
-        {"ja": "ささもとあきら", "en": "SASAMOTOAKIRA"},{"ja": "あまりろり", "en": "AMARIRORI"},
-        {"ja": "ひんじゃくひんじゃく", "en": "HINJAKUHINJAKU"},{"ja": "しんでいる", "en": "SINDEIRU"},
-        {"ja": "つぎのせりふは", "en": "TUGINOSERIHU"},{"ja": "さい最高にははい", "en": "SAIKOUNIHAI"},
-        {"ja": "すかいうぉーかー", "en": "SUKAIWOOKAA"},{"ja": "ちちおや", "en": "TITIOYA"},
-        {"ja": "おまえのちちおや", "en": "OMAENOTITIOYA"},{"ja": "だーくさいど", "en": "DAAKUSAIDO"},
-        {"ja": "ぎんがけい", "en": "GINGAKEI"},{"ja": "おわっちまった", "en": "OWATTIMATTA"},
-        {"ja": "つよくなりすぎてしまった", "en": "TUYOKUNARISUGITESIMATTA"},{"ja": "きょうかい", "en": "KYOUKAI"},
-        {"ja": "かいじんきょうかい", "en": "KAIZINKYOUKAI"},{"ja": "しゅじんこう", "en": "SYUZINKOU"},
-        {"ja": "げーむをさせてくれ", "en": "GEEMUWOSASETEKURE"},{"ja": "おまえはただのううま だ", "en": "OMAEHATADANOUMADA"},
-        {"ja": "スイパラいこ", "en": "SUIPARAIKO"}, {"ja": "けもの", "en": "KEMONO"},{"ja": "はやしれいな", "en": "HAYASIREINA"},
-        {"ja": "ささもとあきら", "en": "SASAMOTOAKIRA"},{"ja": "あまりろり", "en": "AMARIRORI"}
-    ]
+    
+    
 ]
 
 # ==========================================
@@ -382,7 +467,10 @@ combo_count = 0
 shake_frames = 0     
 fire_bolts = []       
 particles = []       
-gray_debris = []     
+gray_debris = [] 
+
+zombie_message = False
+zombie_message_start = 0   
 
 # ★ボム用追加変数
 bomb_flash_frames = 0  # 画面を白くフラッシュさせるフレームカウンタ
@@ -399,7 +487,7 @@ def create_enemy():
     x = CENTER_X + SPAWN_RADIUS * math.cos(angle)
     y = CENTER_Y + SPAWN_RADIUS * math.sin(angle)
     
-    enemy_type_idx = random.randint(0, 4)
+    enemy_type_idx = random.randint(0, 3)
     word_data = random.choice(ENEMY_TYPES[enemy_type_idx])
     chosen_image = enemy_images[enemy_type_idx]
     
@@ -422,10 +510,15 @@ def create_enemy():
     return {
         "x": x, "y": y, "move_dir": move_dir,  
         "word_ja": word_data["ja"], "word_en": word_data["en"], "index": 0,
+        "base_score": base_score,          
+        "score_multiplier": score_multiplier,
         "speed": base_enemy_speed,
         "image": chosen_image, "rot_angle": rot_angle, "offset_ja": offset_ja, "offset_en": offset_en,
-        "base_score": base_score,          
-        "score_multiplier": score_multiplier  
+        "miss": 0,
+        "zombie": False,
+        "zombie_start": 0,
+        "spawn_x": x,
+        "spawn_y": y,
     }
 
 # ==========================================
@@ -510,6 +603,18 @@ while running:
                     matched = True
                 else:
                     combo_count = 0
+                    
+                    if locked_enemy and not locked_enemy["zombie"]:
+
+                        locked_enemy["miss"] += 1
+
+                        if locked_enemy["miss"] >= 5:
+
+                            locked_enemy["zombie"] = True
+                            locked_enemy["zombie_start"] = pygame.time.get_ticks()
+
+                            zombie_message = True
+                            zombie_message_start = pygame.time.get_ticks()
             
             if locked_enemy and locked_enemy["index"] >= len(locked_enemy["word_en"]):
                 if snd_kill: snd_kill.play()
@@ -521,9 +626,29 @@ while running:
                 combo_count += 1
                 
                 score += locked_enemy["base_score"] * combo_count
+                if locked_enemy["zombie"]:
+
+                    locked_enemy["x"] = locked_enemy["spawn_x"]
+                    locked_enemy["y"] = locked_enemy["spawn_y"]
+
+                    locked_enemy["index"] = 0
+                    locked_enemy["miss"] = 0
+
+                    locked_enemy = None
+
+                else:
                     
-                enemies.remove(locked_enemy)
-                locked_enemy = None
+                    if snd_kill: snd_kill.play()
+                    
+                    particles.extend([Particle(locked_enemy["x"], locked_enemy["y"], random.choice([GRAY_INNER, GRAY_OUTER])) for _ in range(75)])
+                    gray_debris.extend([GrayDebris(locked_enemy["x"], locked_enemy["y"]) for _ in range(15)])
+                    
+                    shake_frames = 15 
+                    combo_count += 1
+                    score += 100 * combo_count
+                        
+                    enemies.remove(locked_enemy)
+                    locked_enemy = None
                 
         elif event.type == pygame.KEYDOWN and game_state == "GAMEOVER":
             if event.key == pygame.K_SPACE:
@@ -577,6 +702,17 @@ while running:
                     game_state = "GAMEOVER"
                     pygame.mixer.music.stop()
                     if snd_gameover: snd_gameover.play()
+                    
+        now = pygame.time.get_ticks()
+
+        for e in enemies:
+
+            if e["zombie"]:
+
+                if now - e["zombie_start"] >= 10000:
+
+                    e["zombie"] = False
+                    e["miss"] = 0
 
     offset_x, offset_y = 0, 0
     if shake_frames > 0:
@@ -589,6 +725,28 @@ while running:
     
     if game_state in ["PLAYING", "GAMEOVER"]:
         screen.blit(player_image, (CENTER_X - 20 + offset_x, CENTER_Y - 20 + offset_y))
+    for b in fire_bolts: b.draw(screen, offset_x, offset_y)
+    for p in particles: p.draw(screen, offset_x, offset_y)
+    for d in gray_debris: d.draw(screen, offset_x, offset_y) 
+
+    for e in enemies:
+        rotated_enemy_img = pygame.transform.rotate(e["image"], e["rot_angle"])
+        # ゾンビ中は敵を緑色にする
+        if e["zombie"]:
+            rotated_enemy_img = rotated_enemy_img.copy()
+            green = pygame.Surface(rotated_enemy_img.get_size(), pygame.SRCALPHA)
+            green.fill((0, 255, 0, 160))   # 緑色
+            rotated_enemy_img.blit(green, (0, 0), special_flags=pygame.BLEND_RGBA_ADD)
+            
+        new_rect = rotated_enemy_img.get_rect(center=(int(e["x"]), int(e["y"])))
+        screen.blit(rotated_enemy_img, (new_rect.x + offset_x, new_rect.y + offset_y))
+
+        surf_ja = font_ja.render(e["word_ja"], True, TEXT_JA_COLOR)
+        color_en = LOCKED_COLOR if e == locked_enemy else ENEMY_COLOR
+        typed_part, untyped_part = e["word_en"][:e["index"]], e["word_en"][e["index"]:]
+        surf_typed = font_word.render(typed_part, True, TEXT_TYPED)
+        surf_untyped = font_word.render(untyped_part, True, color_en)
+        total_en_width = surf_typed.get_width() + surf_untyped.get_width()
         
         for b in fire_bolts: b.draw(screen, offset_x, offset_y)
         for p in particles: p.draw(screen, offset_x, offset_y)
@@ -652,6 +810,31 @@ while running:
         screen.blit(font_ui.render(f"LIFE: {hp} / 5", True, UI_COLOR), (20, 60))
         slow_color = (0, 255, 255) if slow_sys.is_active else UI_COLOR
         screen.blit(font_ui.render(f"SLOW [SPACE]: {slow_sys.count} / 3", True, slow_color), (20, 100))
+        
+        # ゾンビタイマー表示
+        zombie_enemy = None
+        
+        for enemy in enemies:
+            if enemy["zombie"]:
+                zombie_enemy = enemy
+                break
+            
+        if zombie_enemy:    
+
+                remain = max(
+                    0,
+                    10 - (pygame.time.get_ticks() - zombie_enemy["zombie_start"]) / 1000
+                )
+
+                txt = font_ui.render(
+                    f"ZOMBIE : {remain:.1f}s",
+                    True,
+                    (0, 255, 0)
+                )
+
+                screen.blit(txt, (20, 140))
+                
+            
     elif game_state == "GAMEOVER":
         mask = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT)).convert_alpha()
         mask.fill((10, 10, 20, 200)); screen.blit(mask, (0, 0))
@@ -672,6 +855,22 @@ while running:
         screen.blit(surf_comment, (CENTER_X - surf_comment.get_width() // 2, 280))
 
         screen.blit(font_ui.render("Press SPACE to Return START", True, (0, 255, 255)), (CENTER_X - 190, 400))
+
+    if zombie_message:
+
+        if pygame.time.get_ticks() - zombie_message_start < 1000:
+
+            text = font_title.render(
+                "☠ ZOMBIE TIME!!",
+                True,
+                (50, 255, 50)
+            )
+
+            rect = text.get_rect(center=(CENTER_X, CENTER_Y))
+            screen.blit(text, rect)
+
+        else:
+            zombie_message = False
 
     pygame.display.update()
     clock.tick(60)

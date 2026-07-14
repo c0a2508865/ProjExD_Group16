@@ -3,7 +3,10 @@ import random
 import sys
 import math
 import os
+
+# カレントディレクトリを実行ファイルの場所に合わせる
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 
 # ==========================================
 # 1. 初期設定 & オーディオ初期化
@@ -100,8 +103,6 @@ if snd_gameover: snd_gameover.set_volume(0.3)
 if snd_type: snd_type.set_volume(1.0)
 if snd_damage: snd_damage.set_volume(1.0)
 
-# ★変更: 元々ここで play_bgm() を呼んでいましたが、ゲームスタート時（OKと打った後）に鳴らすように移動しました
-
 # ==========================================
 # 2. 画像と敵のデータ定義
 # ==========================================
@@ -173,16 +174,15 @@ ENEMY_TYPES = [
     ],
     [
         {"ja": "ひんじゃくひんじゃく", "en": "HINJAKUHINJAKU"},{"ja": "しんでいる", "en": "SINDEIRU"},
-        {"ja": "つぎのせりふは", "en": "TUGINOSERIHU"},{"ja": "さいこうにははい", "en": "SAIKOUNIHAI"},
+        {"ja": "つぎのせりふは", "en": "TUGINOSERIHU"},{"ja": "さい最高にははい", "en": "SAIKOUNIHAI"},
         {"ja": "すかいうぉーかー", "en": "SUKAIWOOKAA"},{"ja": "ちちおや", "en": "TITIOYA"},
         {"ja": "おまえのちちおや", "en": "OMAENOTITIOYA"},{"ja": "だーくさいど", "en": "DAAKUSAIDO"},
         {"ja": "ぎんがけい", "en": "GINGAKEI"},{"ja": "おわっちまった", "en": "OWATTIMATTA"},
         {"ja": "つよくなりすぎてしまった", "en": "TUYOKUNARISUGITESIMATTA"},{"ja": "きょうかい", "en": "KYOUKAI"},
         {"ja": "かいじんきょうかい", "en": "KAIZINKYOUKAI"},{"ja": "しゅじんこう", "en": "SYUZINKOU"},
-        {"ja": "げーむをさせてくれ", "en": "GEEMUWOSASETEKURE"},{"ja": "おまえはただのうまだ", "en": "OMAEHATADANOUMADA"},
+        {"ja": "げーむをさせてくれ", "en": "GEEMUWOSASETEKURE"},{"ja": "おまえはただのううま だ", "en": "OMAEHATADANOUMADA"},
         {"ja": "スイパラいこ", "en": "SUIPARAIKO"}, {"ja": "けもの", "en": "KEMONO"},{"ja": "はやしれいな", "en": "HAYASIREINA"},
-        {"ja": "けもの", "en": "KEMONO"},{"ja": "はやしれいな", "en": "HAYASIREINA"},
-        {"ja": "ささもとあきら", "en": "SASAMOTOAKIRA"},{"ja": "あまりろり", "en": "AMARIRORI"},
+        {"ja": "ささもとあきら", "en": "SASAMOTOAKIRA"},{"ja": "あまりろり", "en": "AMARIRORI"}
     ]
 ]
 
@@ -343,11 +343,7 @@ locked_enemy = None
 score = 0
 hp = 5
 
-# ★変更: ゲームの最初の状態を "PLAYING" から "START" に変更しました
 game_state = "START" 
-
-# ★追加: スタート画面で「OK」と打つための入力状態を管理する変数
-# 最初は空文字("")、Oを打つと"O"、Kを打つと"OK"になる
 start_typed_ok = ""  
 
 spawn_timer = 0
@@ -379,11 +375,24 @@ def create_enemy():
     offset_ja = -65 if enemy_type_idx == 0 else -85
     offset_en = -40 if enemy_type_idx == 0 else -60
     
+    if enemy_type_idx == 4:
+        base_score = 200
+    else:
+        base_score = 100
+    
+    if random.random() < 0.20:
+        base_score *= 2  
+        score_multiplier = 2
+    else:
+        score_multiplier = 1
+    
     return {
         "x": x, "y": y, "move_dir": move_dir,  
         "word_ja": word_data["ja"], "word_en": word_data["en"], "index": 0,
         "speed": base_enemy_speed,
-        "image": chosen_image, "rot_angle": rot_angle, "offset_ja": offset_ja, "offset_en": offset_en
+        "image": chosen_image, "rot_angle": rot_angle, "offset_ja": offset_ja, "offset_en": offset_en,
+        "base_score": base_score,          
+        "score_multiplier": score_multiplier  
     }
 
 # ==========================================
@@ -396,25 +405,19 @@ while running:
         if event.type == pygame.QUIT:
             running = False
             
-        # ==========================================
-        # ★追加: スタート画面での「OK」入力判定のブロック
-        # ==========================================
         elif event.type == pygame.KEYDOWN and game_state == "START":
             pressed_key = event.unicode.upper()
             
-            # まだ何も打っていないときは「O」を待つ
             if start_typed_ok == "":
                 if pressed_key == "O":
                     start_typed_ok = "O"
                     if snd_type: snd_type.play()
             
-            # 既に「O」を打っているときは「K」を待つ
             elif start_typed_ok == "O":
                 if pressed_key == "K":
                     start_typed_ok = "OK"
                     if snd_type: snd_type.play()
                     
-                    # ーーー ここからゲーム開始の初期化 ーーー
                     enemies.clear(); fire_bolts.clear(); particles.clear(); gray_debris.clear()
                     locked_enemy = None
                     score = 0; hp = 5; spawn_rate = 180; spawn_timer = 0; combo_count = 0
@@ -422,15 +425,13 @@ while running:
                     
                     enemies.append(create_enemy())
                     
-                    # 状態をゲーム中にしてBGMを鳴らす
                     game_state = "PLAYING"
                     play_bgm("bgm.mp3") 
-                    # ーーーーーーーーーーーーーーーーーーーーー
 
         elif event.type == pygame.KEYDOWN and game_state == "PLAYING":
             if event.key == pygame.K_SPACE:
                 if slow_sys.trigger():
-                    continue  # タイピング入力（文字判定）に進まないように処理を飛ばす
+                    continue  
             pressed_key = event.unicode.upper()
             if len(pressed_key) != 1 or not pressed_key.isalpha(): continue
             
@@ -462,24 +463,21 @@ while running:
                 
                 shake_frames = 15 
                 combo_count += 1
-                score += 100 * combo_count
+                
+                score += locked_enemy["base_score"] * combo_count
                     
                 enemies.remove(locked_enemy)
                 locked_enemy = None
                 
         elif event.type == pygame.KEYDOWN and game_state == "GAMEOVER":
             if event.key == pygame.K_SPACE:
-                # ==========================================
-                # ★変更: リスタートの挙動
-                # 直接ゲームを再開するのではなく、いったんSTART画面に戻す
-                # ==========================================
                 game_state = "START"
-                start_typed_ok = "" # OKの入力状態もリセット
+                start_typed_ok = "" 
 
     if game_state == "PLAYING":
         slow_sys.update()
         if slow_sys.is_active:
-            spawn_timer += 0.3  # スロー中は敵が生まれるペースを遅くする
+            spawn_timer += 0.3  
         else:
             spawn_timer += 1
         if spawn_timer >= spawn_rate:
@@ -523,14 +521,9 @@ while running:
         offset_x, offset_y = random.randint(-intensity, intensity), random.randint(-intensity, intensity)
         shake_frames -= 1
 
-    # 背景アニメーションは全ステート共通で描画
     current_bg_idx = (bg_frame_count // 30) % len(bg_images)
     screen.blit(bg_images[current_bg_idx], (offset_x, offset_y))
     
-    # ==========================================
-    # ★変更: スタート画面でプレイヤーや敵を描画しないように、
-    # if game_state in ["PLAYING", "GAMEOVER"]: のブロックで囲みました
-    # ==========================================
     if game_state in ["PLAYING", "GAMEOVER"]:
         screen.blit(player_image, (CENTER_X - 20 + offset_x, CENTER_Y - 20 + offset_y))
         
@@ -538,36 +531,46 @@ while running:
         for p in particles: p.draw(screen, offset_x, offset_y)
         for d in gray_debris: d.draw(screen, offset_x, offset_y) 
 
+        # --- 敵とそのテキストを順に描画（インデントをループ内に修正） ---
         for e in enemies:
             rotated_enemy_img = pygame.transform.rotate(e["image"], e["rot_angle"])
             new_rect = rotated_enemy_img.get_rect(center=(int(e["x"]), int(e["y"])))
             screen.blit(rotated_enemy_img, (new_rect.x + offset_x, new_rect.y + offset_y))
 
-            surf_ja = font_ja.render(e["word_ja"], True, TEXT_JA_COLOR)
+            # ★ ポイント2倍の敵の日本語を黄色にし、それ以外は白にする判定
+            if e["score_multiplier"] == 2:
+                display_ja = f"★ {e['word_ja']}"
+                ja_color = LOCKED_COLOR
+            else:
+                display_ja = e["word_ja"]
+                ja_color = TEXT_JA_COLOR
+                
+            # 日本語テキストの作成
+            surf_ja = font_ja.render(display_ja, True, ja_color)
+        
+            # アルファベットテキストの作成
             color_en = LOCKED_COLOR if e == locked_enemy else ENEMY_COLOR
             typed_part, untyped_part = e["word_en"][:e["index"]], e["word_en"][e["index"]:]
             surf_typed = font_word.render(typed_part, True, TEXT_TYPED)
             surf_untyped = font_word.render(untyped_part, True, color_en)
             total_en_width = surf_typed.get_width() + surf_untyped.get_width()
             
+            # テキストの描画処理（全ての敵に対して毎フレーム実行）
             screen.blit(surf_ja, (int(e["x"]) - surf_ja.get_width() // 2 + offset_x, int(e["y"]) + e["offset_ja"] + offset_y))
             screen.blit(surf_typed, (int(e["x"]) - total_en_width // 2 + offset_x, int(e["y"]) + e["offset_en"] + offset_y))
             screen.blit(surf_untyped, (int(e["x"]) - total_en_width // 2 + surf_typed.get_width() + offset_x, int(e["y"]) + e["offset_en"] + offset_y))
 
 
     # ==========================================
-    # ★追加: スタート画面（準備はよい？）の描画処理ブロック
+    # スタート画面（準備はよい？）の描画処理
     # ==========================================
     if game_state == "START":
-        # 半透明の黒いフィルターをかける
         mask = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT)).convert_alpha()
         mask.fill((10, 10, 20, 200)); screen.blit(mask, (0, 0))
         
-        # 「準備はよい？」というテキストの描画
         surf_ready = font_ja_large.render("準備はよい？", True, TEXT_JA_COLOR)
         screen.blit(surf_ready, (CENTER_X - surf_ready.get_width() // 2, 180))
         
-        # プレイヤーが「OK」を打つ時の文字色処理（入力済みは灰色、未入力は黄色）
         typed = start_typed_ok
         untyped = "OK"[len(typed):]
         s_typed = font_ok.render(typed, True, TEXT_TYPED)
@@ -588,24 +591,19 @@ while running:
         screen.blit(font_title.render("GAME OVER", True, (255, 65, 65)), (CENTER_X - 180, 120))
         screen.blit(font_ui.render(f"FINAL SCORE: {score}", True, UI_COLOR), (CENTER_X - 150, 200))
         
-        # ==========================================
-        # ★追加: スコアに応じたコメントと色の条件分岐
-        # ==========================================
         if score < 2500:
             comment_text = "頑張ろう"
-            comment_color = (255, 100, 100) # 赤色
+            comment_color = (255, 100, 100) 
         elif score < 3000:
             comment_text = "まあまあかな"
-            comment_color = (100, 255, 100) # 緑色
+            comment_color = (100, 255, 100) 
         else:
             comment_text = "この調子！"
-            comment_color = (255, 215, 0)   # 金色
+            comment_color = (255, 215, 0)   
 
-        # 分岐した内容でテキストを描画
         surf_comment = font_ja_large.render(comment_text, True, comment_color)
         screen.blit(surf_comment, (CENTER_X - surf_comment.get_width() // 2, 280))
 
-        # ★変更: リスタート時の案内文も START に戻る旨に変更
         screen.blit(font_ui.render("Press SPACE to Return START", True, (0, 255, 255)), (CENTER_X - 190, 400))
 
     pygame.display.update()

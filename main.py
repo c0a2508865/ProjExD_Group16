@@ -527,8 +527,8 @@ def create_enemy():
 running = True
 while running:
     
-    # 現在持っているボムの個数を計算（1000スコアにつき1個、最大3個ストック可能）
-    bomb_count = min(3, score // 1000)
+    # 現在持っているボムの個数を計算（1500スコアにつき1個、最大3個ストック可能）
+    bomb_count = min(100, score // 1500)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

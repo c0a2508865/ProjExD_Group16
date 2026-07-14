@@ -174,7 +174,7 @@ ENEMY_TYPES = [
         {"ja": "しろ", "en": "SIRO"},
         {"ja": "くろ", "en": "KURO"},
         {"ja": "トイレ", "en": "TOIRE"},
-        {"ja": "マスター", "en": "MASUTAA"},
+        {"ja": "マスター", "en": "MASTAA"},
         {"ja": "オビワン", "en": "OBIWAN"},
         {"ja": "アナキン", "en": "ANAKIN"},
         {"ja": "パダワン", "en": "PADAWAN"},
@@ -208,7 +208,7 @@ ENEMY_TYPES = [
         {"ja": "さくら", "en": "SAKURA"},
         {"ja": "かかし", "en": "KAKASI"},
         {"ja": "いたち", "en": "ITATI"},
-        {"ja": "ルフィ", "en": "RUFII"},
+        {"ja": "ルフィ", "en": "RUHUFI"},
         {"ja": "ゾロ", "en": "ZORO"},
         {"ja": "サンジ", "en": "SANZI"},
         {"ja": "ナミ", "en": "NAMI"},
@@ -229,7 +229,7 @@ ENEMY_TYPES = [
         {"ja": "こんぐ", "en": "KONGU"},
         {"ja": "ウルトラ", "en": "URUTORA"},
         {"ja": "元老院", "en": "GENROUIN"},
-        {"ja": "シディアス", "en": "SIDHIASU"},
+        {"ja": "シディアス", "en": "SIDHIAU"},
         {"ja": "首ちょんぱ", "en": "KUBITYONPA"},
         {"ja": "集中しよう", "en": "SYUUTYUUSIYO"},
         {"ja": "ピーナッツ", "en": "PIINATTU"},
@@ -242,7 +242,7 @@ ENEMY_TYPES = [
         {"ja": "どらえもん", "en": "DORAEMON"},
         {"ja": "のびのびた", "en": "NOBINOBITA"},
         {"ja": "しずかちゃん", "en": "SIZUKATYAN"},
-        {"ja": "ジャイアン", "en": "IAN"},
+        {"ja": "ジャイアン", "en": "ZYAIAN"},
         {"ja": "くれしん", "en": "KURESIN"},
         {"ja": "あんぱんまん", "en": "ANPANMAN"},
         {"ja": "しょくぱんまん", "en": "SYOKUPANMAN"},
@@ -251,7 +251,7 @@ ENEMY_TYPES = [
         {"ja": "かめはめは", "en": "KAMEHAMEHA"},
         {"ja": "げんきだま", "en": "GENKIDAMA"},
         {"ja": "かいおうけん", "en": "KAIOUKEN"},
-        {"ja": "ワンフォーオール", "en": "WANFOOOORU"},
+        {"ja": "ワンフォーオール", "en": "WANHOOOORU"},
         {"ja": "オールマイト", "en": "OORUMAITO"},
         {"ja": "エンデヴァー", "en": "ENDEVAA"},
         {"ja": "しんげき", "en": "SINGEKI"},
@@ -275,15 +275,15 @@ ENEMY_TYPES = [
     #9~10文字
     [
         {"ja": "スーパーサイヤ人", "en": "SUUPAASAIYAZIN"},      
-        {"ja": "ファイナルフラッシュ", "en": "FAINARUHURASSYU"}, 
+        {"ja": "ファイナルフラッシュ", "en": "HAINARUHURASSYU"}, 
         {"ja": "かめはめはだいおう", "en": "KAMEHAMEHADAIOU"},   
         {"ja": "ギアセカンド", "en": "GIASEKANDO"},             
-        {"ja": "ギアフォース", "en": "GIAFOOSU"},               
-        {"ja": "ワンフォーオール", "en": "WANFOOOORU"},         
-        {"ja": "オールフォーワン", "en": "OORUFOOOWAN"},        
+        {"ja": "ギアフォース", "en": "GIAHOOSU"},               
+        {"ja": "ワンフォーオール", "en": "WANHOOOORU"},         
+        {"ja": "オールフォーワン", "en": "OORUHOOOWAN"},        
         {"ja": "ゴムゴムのみ", "en": "GOMUGOMUNOMI"},           
         {"ja": "おにたいじ", "en": "ONITAIZI"},         
-        {"ja": "れんごくきょうじゅろう", "en": "RENGOKUKYOUJUROU"}, 
+        {"ja": "れんごくきょうじゅろう", "en": "RENGOKUKYOUZIROU"}, 
         {"ja": "かまどたんじろう", "en": "KAMADOTANZIROU"},     
         {"ja": "あがつまぜんいつ", "en": "AGATUMAZENITU"},      
         {"ja": "はしびらいのすけ", "en": "HASIBIRAINOSUKE"},    
@@ -528,7 +528,7 @@ running = True
 while running:
     
     # 現在持っているボムの個数を計算（1000スコアにつき1個、最大3個ストック可能）
-    bomb_count = min(3, score // 1000)
+    bomb_count = min(100, score // 1500)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -644,6 +644,8 @@ while running:
                     gray_debris.extend([GrayDebris(locked_enemy["x"], locked_enemy["y"]) for _ in range(15)])
                     
                     shake_frames = 15 
+                    combo_count += 1
+                    score += 100 * combo_count
                         
                     enemies.remove(locked_enemy)
                     locked_enemy = None
